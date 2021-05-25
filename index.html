@@ -1,0 +1,71 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="slider">
+		<div class="slider-control1">
+			<div class="slider-bigimg">
+				<div class="content">
+					<img class="image" src="Image/img1.jpg">
+					<div class="text">Ảnh 1</div>
+				</div>
+				<div class="content">
+					<img class="image" src="Image/img2.jpeg">
+					<div class="text">Ảnh 2</div>
+				</div>
+				<div class="content">
+					<img class="image" src="Image/img3.jpg">
+					<div class="text">Ảnh 3</div>
+				</div>
+				<div class="content">
+					<img class="image" src="Image/img4.jpg">
+					<div class="text">Ảnh 4</div>
+				</div>
+				<div class="content">
+					<img class="image" src="Image/img5.jpg">
+					<div class="text">Ảnh 5</div>
+				</div>
+			</div>
+			<div class="slider-button">
+			</div>
+			<button class="prev" onclick="plusDivs(-1)">&#10094;</button>
+			<button class="next" onclick="plusDivs(+1)">&#10095;</button>
+		</div>
+		<div class="slider-control2">
+			
+			<span><img class="image2" src="Image/img1.jpg" onclick="currentSlide(1)"></span>
+			<span><img class="image2" src="Image/img2.jpeg" onclick="currentSlide(2)"></span>
+			<span><img class="image2" src="Image/img3.jpg" onclick="currentSlide(3)"></span>
+			<span><img class="image2" src="Image/img4.jpg" onclick="currentSlide(4)"></span>
+			<span><img class="image2" src="Image/img5.jpg" onclick="currentSlide(5)"></span>
+		</div>
+	</div>
+	<script language="javascript">
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		showDivs(slideIndex += n);
+		}
+		function currentSlide(n) {
+		showDivs(slideIndex = n);
+		}
+		function showDivs(n) {
+		var i;
+		var x = document.getElementsByClassName("content");
+		if (n > x.length) {slideIndex = 1}
+		if (n < 1) {slideIndex = x.length}
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";  
+		}
+		var y = document.getElementsByClassName("image2");
+		  for (i = 0; i < y.length; i++) {
+			y[i].className = y[i].className.replace(" image2-active", "");
+			}
+		x[slideIndex-1].style.display = "block";  
+		y[slideIndex-1].className += " image2-active";
+		}
+	</script>
+</body>
+</html>
